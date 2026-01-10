@@ -6,6 +6,8 @@ Ele permite separar HTML da lógica da aplicação sem depender de parsers compl
 
 O template é interpretado de forma **incremental e determinística**, com controle total da renderização pelo código PHP.
 
+MiTemplate é baseado no [MGTemplate](https://github.com/mugomes/mgtemplate).
+
 ---
 
 ## ✨ Características
