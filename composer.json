@@ -1,23 +1,22 @@
 {
     "name": "mugomes/mitemplate",
     "type": "library",
-    "version": "0.1.0",
-    "description": "PHP Template with Cache and Minify Code.",
+    "version": "0.2.0",
+    "description": "MiTemplate é um mecanismo de templates.",
     "homepage": "https://github.com/mugomes/mitemplate/",
-    "license": "LGPL-2.1-only",
+    "license": "MIT",
     "_comment": [
-        "Copyright (C) 2025 Murilo Gomes Julio"
+        "Copyright (C) 2025-2026 Murilo Gomes Julio"
     ],
     "authors": [
         {
             "name": "Murilo Gomes",
             "email": "mugomesoficial@gmail.com",
-            "homepage": "https://www.mugomes.com.br"
+            "homepage": "https://mugomes.github.io"
         }
     ],
     "require": {
-        "php": ">=8.4",
-        "pfaciana/tiny-html-minifier": "3.0.0"
+        "php": ">=8.4"
     },
     "autoload": {
         "psr-4": {
