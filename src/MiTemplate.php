@@ -4,7 +4,7 @@
  * Copyright (C) 2025-2026 Murilo Gomes Julio
  * SPDX-License-Identifier: MIT
  *
- * Site: https://mugomes.github.io
+ * Site: https://www.bluice.com.br
  */
 
 namespace MiTemplate;
@@ -13,7 +13,8 @@ class MiTemplate
 {
     private string $source;
     private array $context = [];
-    private array $sectionCalls = [];
+    private array $sections = [];
+    private array $loops = [];
 
     public function __construct(string $path)
     {
@@ -50,9 +51,13 @@ class MiTemplate
     }
 
     // Seções
-    public function section(string $name): void
+    public function section(string $name, bool $loop = false): void
     {
-        $this->sectionCalls[$name][] = $this->context;
+        if ($loop) {
+            $this->loops[$name][] = $this->context;
+        } else {
+            $this->sections[$name] = true;
+        }
     }
 
     // Render
@@ -60,8 +65,12 @@ class MiTemplate
     {
         $output = $this->source;
 
-        foreach ($this->sectionCalls as $name => $calls) {
-            $output = $this->renderSection($output, $name, $calls);
+        foreach ($this->sections as $name => $_) {
+            $output = $this->renderSection($output, $name);
+        }
+
+        foreach ($this->loops as $name => $calls) {
+            $output = $this->renderLoop($output, $name, $calls);
         }
 
         $output = $this->interpolate($output);
@@ -71,7 +80,31 @@ class MiTemplate
     }
 
 
-    private function renderSection(string $html, string $name, array $calls): string
+    private function renderSection(string $html, string $name): string
+    {
+        $open  = '[[' . $name . ']]';
+        $close = '[[/' . $name . ']]';
+
+        $start = strpos($html, $open);
+        $end   = strpos($html, $close);
+
+        if ($start === false || $end === false || $end < $start) {
+            return $html;
+        }
+
+        $body = substr(
+            $html,
+            $start + strlen($open),
+            $end - ($start + strlen($open))
+        );
+
+        return
+            substr($html, 0, $start) .
+            $this->interpolate($body) .
+            substr($html, $end + strlen($close));
+    }
+
+    private function renderLoop(string $html, string $name, array $calls): string
     {
         $open  = '[[' . $name . ']]';
         $close = '[[/' . $name . ']]';
@@ -90,11 +123,14 @@ class MiTemplate
         );
 
         $result = '';
+        $original = $this->context;
 
         foreach ($calls as $ctx) {
             $this->context = $ctx;
             $result .= $this->interpolate($body);
         }
+
+        $this->context = $original;
 
         return
             substr($html, 0, $start) .
