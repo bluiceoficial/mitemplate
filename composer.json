@@ -1,7 +1,7 @@
 {
     "name": "mugomes/mitemplate",
     "type": "library",
-    "version": "0.2.0",
+    "version": "1.0.0",
     "description": "MiTemplate é um mecanismo de templates.",
     "homepage": "https://github.com/mugomes/mitemplate/",
     "license": "MIT",
