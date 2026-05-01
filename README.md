@@ -108,6 +108,15 @@ $tpl->section('item');
 
 Cada chamada adiciona uma nova instância renderizada da seção.
 
+Caso precise trabalhar com seções em loop é necessário ativá-lo:
+
+```php
+for ($i = 0; $i < 5; $i++) {
+    $tpl->var('i', $i);
+    $tpl->section('item', true);
+}
+```
+
 ### ✔ Ordem livre
 
 É possível chamar seções filhos **antes** das seções pais:
