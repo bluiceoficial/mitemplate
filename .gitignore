@@ -1,10 +1,6 @@
 # folders
 vendor/
+teste/
 
 # files
-composer.lock 
-
-# test
-index.html
-index.php
-menu.html
+composer.lock
