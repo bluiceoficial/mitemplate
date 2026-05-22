@@ -250,8 +250,10 @@ Isso garante **HTML limpo e válido**, mesmo quando as seções não são ativad
 
 ## 📜 License
 
-Copyright (c) 2025-2026 Murilo Gomes Julio
+The MiTemplate is provided under:
 
-Licensed under the [MIT](https://github.com/bluiceoficial/mitemplate/blob/main/LICENSE).
+[SPDX-License-Identifier: LGPL-2.1-only](https://github.com/mugomes/mitemplate/blob/main/LICENSE)
+
+Beign under the terms of the GNU Lesser General Public License version 2.1 only.
 
 All contributions to the MiTemplate are subject to this license.
