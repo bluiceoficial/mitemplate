@@ -6,7 +6,7 @@ Ele permite separar HTML da lógica da aplicação sem depender de parsers compl
 
 O template é interpretado de forma **incremental e determinística**, com controle total da renderização pelo código PHP.
 
-MiTemplate é baseado no [MGTemplate](https://github.com/mugomes/mgtemplate).
+MiTemplate é baseado no [MGTemplate](https://github.com/bluiceoficial/mgtemplate).
 
 ---
 
@@ -144,6 +144,7 @@ O MiTemplate resolve toda a hierarquia automaticamente durante o `render()`.
 
 ```php
 $tpl->var('title', 'Exemplo');
+echo $tpl->getVar('title');
 ```
 
 ### Verificar se a variável existe no template
@@ -234,7 +235,8 @@ Isso garante **HTML limpo e válido**, mesmo quando as seções não são ativad
 
 **Murilo Gomes Julio**
 
-🔗 [https://mugomes.github.io](https://mugomes.github.io)
+🔗 [https://www.bluice.com.br](https://www.bluice.com.br)
+
 📺 [https://youtube.com/@mugomesoficial](https://youtube.com/@mugomesoficial)
 
 ---
@@ -242,7 +244,7 @@ Isso garante **HTML limpo e válido**, mesmo quando as seções não são ativad
 ## 🤝 Support
 
 * GitHub Sponsors: [https://github.com/sponsors/mugomes](https://github.com/sponsors/mugomes)
-* Apoie o projeto: [https://mugomes.github.io/apoie.html](https://mugomes.github.io/apoie.html)
+* Apoie o projeto: [https://www.bluice.com.br/apoie/](https://www.bluice.com.br/apoie/)
 
 ---
 
@@ -250,6 +252,6 @@ Isso garante **HTML limpo e válido**, mesmo quando as seções não são ativad
 
 Copyright (c) 2025-2026 Murilo Gomes Julio
 
-Licensed under the [MIT](https://github.com/mugomes/mitemplate/blob/main/LICENSE).
+Licensed under the [MIT](https://github.com/bluiceoficial/mitemplate/blob/main/LICENSE).
 
 All contributions to the MiTemplate are subject to this license.
