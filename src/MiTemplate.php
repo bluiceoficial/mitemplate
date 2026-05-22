@@ -31,6 +31,10 @@ class MiTemplate
         $this->context[$name] = $value;
     }
 
+    public function getVar(string $name):mixed {
+        return (empty($this->context[$name])) ? '' : $this->context[$name];
+    }
+
     public function varExists(string $name): bool
     {
         return str_contains($this->source, '{{' . $name . '}}');
@@ -78,7 +82,6 @@ class MiTemplate
         // LIMPEZA FINAL
         return $this->cleanup($output);
     }
-
 
     private function renderSection(string $html, string $name): string
     {
